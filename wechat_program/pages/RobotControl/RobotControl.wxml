@@ -1,0 +1,32 @@
+<view style="display:flex; flex-direction:column; align-items:center;">
+  <image style="width:320px; height:100px;" src="../../image/Robot_small.png" mode="cover"></image>
+</view>
+
+<view class="body">
+  <view style="font-weight: bold;">
+    设备信息
+  </view>
+  <text>\n</text>
+  <view class="box">
+    <view class="cell">
+      <view class="status-left">设备名称</view>
+      <view class="status-right">四轴机械臂</view>
+    </view>
+    <view class="cell">
+      <view class="status-left">设备性能</view>
+      <view class="status-right">20KG·CM</view>
+    </view>
+  </view>
+
+  <text>\n</text>
+
+  <view>
+    <block wx:key="index" wx:for='{{ selects }}'>
+      {{selects[index]}}
+      <slider id='{{index}}' bindchange="sliderChange" show-value class="sliderStyle"></slider>
+    </block>
+  </view>
+  <view>
+    调试信息：{{message}}
+  </view>
+</view>

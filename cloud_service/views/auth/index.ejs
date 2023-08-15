@@ -1,0 +1,88 @@
+<%- include('../header') %>
+<div class="container" style="margin-top:30px">
+    <% if(user===undefined) { %>
+        <h2>请先单击右上角登录。</h2>
+    <% }else{ %>
+        <h2>用户中心</h2>
+        <p>欢迎回来，<%=user%>！</p>
+        <p><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#chpwd">修改密码</a></p>
+    <% } %>
+</div>
+<% if(user){%>
+<script>
+function submit_chpwd(){
+    $(".my_tip").hide();
+    if($('#npwd')[0].value==$('#opwd')[0].value){
+        $("#chpwd_repeat").show();
+        return;
+    }else if($('#npwd')[0].value!=$('#cpwd')[0].value){
+        $("#chpwd_incon").show();
+        return;
+    }else if($('#npwd')[0].value.length<8){
+        $("#chpwd_short").show();
+        return;
+    }
+    $.ajax({
+        async : true, cache : false, type : 'POST', url : '/auth/chpwd',
+        data : {"old":$('#opwd')[0].value,"new":$('#npwd')[0].value},
+        success : function(data) {
+            if(data.success===true){
+                $("#chpwd_ok").show();
+            }else{
+                $("#chpwd_fail").show();
+            }
+        },
+        error :function(err){
+            $("#chpwd_uke").show();
+        }
+    });
+}
+</script>
+<div class="modal fade" id="chpwd" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">修改密码</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>旧密码</label>
+                    <input type="password" name="opwd" class="form-control" id="opwd" placeholder="旧密码"/>
+                </div>
+                <div class="form-group">
+                    <label>新密码</label>
+                    <input type="password" name="npwd" class="form-control" id="npwd" placeholder="新密码"/>
+                </div>
+                <div class="form-group">
+                    <label>确认新密码</label>
+                    <input type="password" name="cpwd" class="form-control" id="cpwd" placeholder="确认新密码"/>
+                </div>
+                <div class="form-group my_tip" id="chpwd_ok" style="display:none">
+                    <p class="text-success">密码修改成功。</p>
+                </div>
+                <div class="form-group my_tip" id="chpwd_fail" style="display:none">
+                    <p class="text-danger">旧密码错误，修改失败。</p>
+                </div>
+                <div class="form-group my_tip" id="chpwd_incon" style="display:none">
+                    <p class="text-danger">新密码的两次输入不匹配。</p>
+                </div>
+                <div class="form-group my_tip" id="chpwd_repeat" style="display:none">
+                    <p class="text-danger">新旧密码不能相同。</p>
+                </div>
+                <div class="form-group my_tip" id="chpwd_short" style="display:none">
+                    <p class="text-danger">新密码太短，至少需要8位。</p>
+                </div>
+                <div class="form-group my_tip" id="chpwd_uke" style="display:none">
+                    <p class="text-danger">网络错误，密码修改失败。</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:submit_chpwd();" class="btn btn-primary">确定</a>
+                <a class="btn btn-default" href="javascript:void(0);" data-dismiss="modal">取消</a>
+            </div>
+        </div>
+    </div>
+</div>
+<%}%>
+<%- include('../footer') %>

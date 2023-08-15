@@ -1,0 +1,44 @@
+/* pages/RobotControl/RobotControl.wxss */
+
+.body {
+  margin: 0rpx 20rpx;
+}
+
+.box {
+  padding: 0rpx 10rpx;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+}
+
+.cell {
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sliderStyle{
+  width: 90%;
+  padding: 0;
+  align-items: center;
+}
+
+.custom-button{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 40rpx;
+  width: 120rpx;
+  background-color: red;
+  border-radius: 40rpx;
+  color: #fff;
+}
+
+.left{
+  box-shadow: -20px 0px 10px 0px rgba(0,0,0,0.5)
+}
+
+.right {
+  box-shadow: 20px 0px 10px 0px rgba(0,0,0,0.5) 
+}

@@ -1,0 +1,150 @@
+.intro {
+  margin: 30px;
+  text-align: center;
+}
+.center{
+  display: inline-block;
+  margin-top: 20rpx;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.header{
+  padding: 20rpx;
+  border-bottom: solid 1px #dfdfdf;
+}
+
+.speed_header{
+  padding: 0rpx 20rpx;
+  font-weight: 600;
+}
+
+.headerItem{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 10rpx;
+  height: 50rpx;
+}
+
+.headerItem > text{
+  color: #333;
+  width: 100%;
+  font-size: 30rpx;
+  text-align: center;
+}
+
+.content{
+  padding: 0 20rpx;
+}
+
+.content > view{
+  margin-top: 10rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.content > .fromLeft > text{
+  padding: 10rpx;
+  width: 690rpx;
+  text-align: left;
+  background-color: orangered;
+  color: white;
+}
+
+.content > .fromRight > text{
+  padding: 10rpx;
+  width: 690rpx;
+  text-align: right;
+  background-color: #dfdfdf;
+  color: white;
+}
+
+.footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 10px 10px 10px;
+  margin-top: 20rpx;
+}
+
+.footer > input{
+  border: solid 2rpx #dfdfdf;
+  border-radius: 4rpx;
+  width: 520rpx;
+  height: 70rpx;
+  font-size: 30rpx;
+  line-height: 70rpx;
+  margin-right: 10rpx;
+  padding: 0 5px 0 5px;
+}
+
+.footer > button{
+  width: 160rpx;
+  height: 70rpx;
+  font-size: 35rpx;
+  line-height: 70rpx;
+}
+
+.selects{
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.selects>.select{
+  margin: 30rpx;
+  width: 80%;
+}
+.selects>.select>.btn{
+  background-color: yellowgreen;
+  color: white;
+  border-radius: 98rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.divide_text {
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: large;
+}
+
+.left{
+  box-shadow: -20px 0px 10px 0px rgba(0,0,0,0.5)
+}
+
+.right {
+  box-shadow: 20px 0px 10px 0px rgba(0,0,0,0.5) 
+}
+
+.speed{
+  display: flex;
+  text-align: center;
+  width: auto;
+}
+
+.active{
+  margin: 10px;
+  padding: 5px 0px;
+  color: orange;
+  width: 25%;
+  /* border: 1px solid rgba(245, 198, 111, 0.5); */
+  border-bottom: solid 5px rgba(245, 198, 111, 0.5);
+  background-color: rgba(245, 198, 111, 0.5);
+  border-radius: 15px;
+}
+
+.unactive{
+  margin: 10px;
+  padding: 5px 0px;
+  color: lightgray;
+  width: 25%;
+}

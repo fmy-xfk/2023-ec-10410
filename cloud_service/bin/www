@@ -1,0 +1,70 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const express = require("express")
+const net = require("net")
+const httpPort = 8088
+const tcpPort = 5678
+const tcpHost = '0.0.0.0'
+
+//TCP服务
+var tcp = require("../tcp")
+//listen函数开始监听指定端口
+tcp.listen(tcpPort, tcpHost, () => {
+  console.log(`TCP服务器已启动，运行在：http://${tcpHost}:${tcpPort}`);
+});
+
+
+//HTTPS
+var http = require('http');
+var app = require('../app');
+var debug = require('debug')('myapi:server');
+
+/**
+ * Get port from environment and store in Express.
+ */
+
+app.set('port', httpPort);
+var server = http.createServer(app);
+server.listen(httpPort);
+server.on('error', onError);
+server.on('listening', onListening);
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening() {
+  var addr = server.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  debug('Listening on ' + bind);
+}

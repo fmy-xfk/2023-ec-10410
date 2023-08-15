@@ -1,0 +1,22 @@
+<!--pages/login/login.wxml-->
+<view class="logo">
+  <image src='/image/LiuShuiXian.png'></image>
+  <text>连接设备</text>
+</view>
+
+<view class="form">
+  <view class="row-group">
+    <text>通信机IP</text>
+    <input placeholder-class='txt' maxlength='32' placeholder = "请输入通信机IP" bindinput="bindDeviceIP" value="{{inputIp}}"/>
+  </view>
+  
+  <view class='row-group'>
+    <text>通信机端口</text>
+      <view class='centerStyle'>
+        <input placeholder-class='txt' maxlength="32" placeholder="请输入通信机端口" bindinput="bindDevicePort" value="{{inputPort}}"></input>
+      </view>
+  </view>
+  <view>
+    <button class="submit" bindtap="onClickSubmit">连接</button>
+  </view>
+</view>

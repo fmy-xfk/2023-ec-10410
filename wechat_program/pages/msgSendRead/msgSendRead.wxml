@@ -1,0 +1,63 @@
+<view>
+  <text class="center" style="padding-bottom: 10px;">分拣设备与调速控制</text>
+
+  <view class='speed_header'>
+    信息发送
+  </view>
+
+  <view class='content'>
+    <block wx:for="{{messageList}}" wx:key="{{index}}">
+      <view wx:if="{{item.from === 1}}" class='fromLeft'>
+        <text>{{item.text}}</text>
+      </view>
+      <view wx:else class='fromRight'>
+        <text>{{item.text}}</text>
+      </view>
+    </block>
+  </view>
+  <view class='footer'>
+    <input type='text' bindinput='addMessage'></input>
+    <button bindtap='SendMsg'>发送</button>
+  </view>
+  <view class='speed_header'>
+    舵机控制
+  </view>
+  <view wx:if="{{sty==0}}">
+    <view class="score" style="background-color:{{score}};" catchtap='score'>
+      <text>按钮一</text>
+    </view>
+  </view>
+
+  <view class='selects'>
+    <block wx:key="index" wx:for='{{ selects }}'>
+      <view class='select' id='{{index}}' bindtap='changeColor'>
+        <block wx:if="{{(index+1)==selects[index].clickId}}">
+          <button class='btn right' bindtap='light_on' id="{{index}}">
+            {{ item.name }}
+            <text>弹出</text>
+          </button>
+        </block>
+        <block wx:else>
+          <button class='btn right' style="background-color:lightgrey" bindtap='light_off' id="{{index}}">
+            {{ item.name }}
+            <text>收回</text>
+          </button>
+        </block>
+      </view>
+    </block>
+  </view>
+
+  <view class='speed_header'>
+    速度档位
+  </view>
+  <view class='speed' catchtap='changeOil'>
+    <view class='{{num_speed==0?"active":"unactive"}}' data-num='0'>停止</view>
+    <view class='{{num_speed==1?"active":"unactive"}}' data-num='1'>慢速</view>
+    <view class='{{num_speed==2?"active":"unactive"}}' data-num='2'>中速</view>
+    <view class='{{num_speed==3?"active":"unactive"}}' data-num='3'>高速</view>
+  </view>
+
+  <view style="padding:10px">
+    调试信息：{{message}}
+  </view>
+</view>

@@ -1,0 +1,58 @@
+<view style="display:flex; flex-direction:column; align-items:center;">
+  <image style="width:320px; height:100px;" src="../../image/streamLine_small.png" mode="cover"></image>
+</view>
+
+<view style="display: inline-block; margin-top: 20rpx; width: 100%;text-align: center; font-size: 20px; font-weight: 700;">
+工作信息一览
+</view>
+
+<view class="body">
+  <view style="font-weight: bold;">
+    设备信息
+  </view>
+  <text>\n</text>
+  <view class="box">
+    <view class="cell">
+      <view class="status-left">运行状态</view>
+      <view class="status-right">{{workStatus}}</view>
+    </view>
+    <view class="cell">
+      <view class="status-left">运行速度</view>
+      <view class="status-right">{{workSpeed}}</view>
+    </view>
+  </view>
+
+  <text>\n</text>
+
+  <form bindsubmit="">
+    <view style="display:flex; flex-direction:row; justify-content: space-between;">
+      <view style="font-weight: bold;">
+        远程工作情况
+      </view>
+      <view>
+        <button type="primary" size="mini" bindtap="update">刷新</button>
+      </view>
+    </view>
+    <view class="box">
+      <view class="cell">
+        <view class="left">投递处1已分捡</view>
+        <view class="right">
+          {{expressBox[0]}}
+        </view>
+        <view class="unit">件</view>
+      </view>
+      <view class="cell">
+        <view class="left">投递处2已分捡</view>
+        <view class="right">
+          {{expressBox[1]}}
+        </view>
+        <view class="unit">件</view>
+      </view>
+      <view class="cell">
+        <view class="left">投递处3已分捡</view>
+        <view class="right">{{expressBox[2]}}</view>
+        <view class="unit">件</view>
+      </view>
+    </view>
+  </form>
+</view>

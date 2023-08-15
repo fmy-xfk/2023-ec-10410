@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/msgSendRead/msgSendRead",
+    "pages/TencentCloud/TencentCloud",
+    "pages/RobotControl/RobotControl"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#2b4b6b",
+    "navigationBarTitleText": "流水线云端控制",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#efefef"
+  },
+  "tabBar": {
+    "custom": false,
+    "color": "#999999",
+    "selectedColor": "#ff990o",
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      {
+        "pagePath": "pages/msgSendRead/msgSendRead",
+        "text": "控制设备",
+        "iconPath": "/image/control_small.png",
+        "selectedIconPath": "/image/control_active_small.png"
+      },
+      {
+        "pagePath": "pages/RobotControl/RobotControl",
+        "text": "机械调试",
+        "iconPath": "/image/robotArm_unactive_small.png",
+        "selectedIconPath": "/image/robotArm_small.png"
+      },
+      {
+        "pagePath": "pages/TencentCloud/TencentCloud",
+        "text": "云端互联",
+        "iconPath": "/image/cloud_connnect_small.png",
+        "selectedIconPath": "/image/cloud_connnect_active_small.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "WiFi列表需要获取您的授权信息"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,14 @@
+<%- include('header') %>
+<div class="container" style="margin-top:30px">
+    <h2>似乎出现了一些问题……</h2>
+    <% if (status==404) { %>
+        <p>此页不存在！您是否输入了错误的网址？</p>
+    <% } else if (status==403) {%>
+        <p>拒绝访问！请先登录。</p>
+    <% } else {%>
+        <p>错误<%= status %>。请稍后重试。</p>
+        <p><%=err%></p>
+    <% }%>
+    <p>回到<a href="/">首页</a></p>
+</div>
+<%- include('footer') %>
